@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Users | Summernote</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <main>
+                <br><br>
+                <div th:replace="fragments/header"></div>
+                <div class="row">
+                    <div class="col-sm-4" th:each="userDTO : ${users}">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title" th:text="${userDTO.name}"></h5>
+                                <h6 class="card-subtitle mb-2 text-muted" th:text="${userDTO.profission}"></h6>
+                                <p class="card-text" th:utext="${userDTO.biography}"></p>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </main>
+            <div th:replace="fragments/footer"></div>
+        </div>
+        <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

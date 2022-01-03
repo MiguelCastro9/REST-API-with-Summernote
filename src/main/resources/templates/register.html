@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Register | Summernote</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css">
+        <link th:rel="stylesheet" th:href="@{/assets/summernote/summernote-bs4.css}">
+        <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <main>
+                <br><br>
+                <div th:replace="fragments/header"></div>
+                <div th:replace="fragments/alert"></div>
+                <form th:action="@{/save}" method="POST" th:object="${user}">
+                    <div class="form-group">
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}">
+                            <label class="validation-message" th:errors="*{name}"></label>
+                        </div>
+                        <label>* Name:</label>
+                        <input type="text" maxlength="45" class="form-control" th:field="*{name}" required>
+                    </div>
+                    <div class="form-group">
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('profission')}">
+                            <label class="validation-message" th:errors="*{profission}"></label>
+                        </div>
+                        <label>* Profission:</label>
+                        <input type="text" maxlength="45" class="form-control" th:field="*{profission}" required>
+                    </div>
+                    <div class="form-group">
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('biography')}">
+                            <label class="validation-message" th:errors="*{biography}"></label>
+                        </div>
+                        <label>* Biography:</label>
+                        <textarea id="summernote" class="form-control" th:field="*{biography}"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-outline-success">Save</button>
+                    <a class="btn btn-outline-secondary" th:href="@{/index}"><i class="fas fa-home"></i> Cancel</a>
+                </form>
+                <br><br>
+            </main>
+            <div th:replace="fragments/footer"></div>
+        </div>
+        <script src="js/smmernote.js"></script>
+    </body>
+</html>

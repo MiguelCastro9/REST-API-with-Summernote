@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Error :/</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    </head>
+    <body>
+        <main>
+            <div class="container">
+                <br><br>
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading" th:text="${error}"></h4>
+                    <span th:text="${message}"></span>
+                    <hr>
+                    <p><strong>Try again later.</strong></p>
+                    <a class="btn btn-outline-secondary" type="button" href="javascript:history.back()">Return</a>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
